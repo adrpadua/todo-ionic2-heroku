@@ -24,7 +24,7 @@ export class TodoService {
       description: todo
     })
     let headers = new Headers({
-      'Content-type' : 'application/json'
+      'Content-Type' : 'application/json'
     })
 
     return this.http.post(this.todosUrl, body, {

@@ -18,21 +18,21 @@ export class HomePage {
   }
 
   loadTodos() {
-    this.todoService.load().subscribe(data => {
-      this.todos = data
+    this.todoService.load().subscribe(todoList => {
+      this.todos = todoList
     })
   }
 
   addTodo(todo:string) {
-    this.todoService.add(todo).subscribe(data => {
-      this.todos.push(data)
+    this.todoService.add(todo).subscribe(newTodo => {
+      this.todos.push(newTodo)
     })
   }
 
   toggleComplete(todo:Todo) {
     todo.isComplete = !todo.isComplete
-    this.todoService.update(todo).subscribe(data => {
-      todo = data
+    this.todoService.update(todo).subscribe(updatedTodo => {
+      todo = updatedTodo
     })
   }
 

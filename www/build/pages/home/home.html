@@ -10,8 +10,7 @@
 
   <h2>Add a Todo</h2>
   <ion-item no-lines>
-    <ion-input #newTodo (keyup.enter)="addTodo(newTodo.value); newTodo.value=''" type="text" placeholder="Add new todo..." >
-    </ion-input>
+    <ion-input #newTodo (keyup.enter)="addTodo(newTodo.value); newTodo.value=''" type="text" placeholder="Add new todo..." ></ion-input>
     <button clear large item-right (click)="addTodo(newTodo.value); newTodo.value=''">
       <ion-icon name="add"> </ion-icon>
     </button>
@@ -23,10 +22,10 @@
       <ion-item>
         <ion-checkbox (click)="toggleComplete(todo)" [checked]="todo.isComplete"></ion-checkbox>
         <ion-item text-wrap item-left [class.completed]="todo.isComplete">
-          {{ todo.description }}
+          {{todo.description}}
         </ion-item>
       </ion-item>
-      <ion-item-options>
+      <ion-item-options (ionSwipe)="navToEdit(todo, index); slidingItem.close()">
         <button (click)="navToEdit(todo, index); slidingItem.close()">
           Edit
         </button>
