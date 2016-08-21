@@ -8,6 +8,7 @@
 // App Shared Sass variables belong in app.variables.scss.
 
 @import "../pages/home/home";
+@import "../pages/todo-edit/todo-edit.scss";
 
 h2 {
     color: color($colors, dark);
