@@ -1,14 +1,37 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      Ionic Blank
+      MEAN Ionic 2 Todo App
     </ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+<ion-content class="home" padding>
+
+  <h2>Add a Todo</h2>
+  <ion-item no-lines>
+    <ion-input #newTodo type="text" placeholder="Add new todo..." ></ion-input>
+    <button clear large item-right>
+      <ion-icon name="add"> </ion-icon>
+    </button>
+  </ion-item>
+
+  <h2>Todo List <small>Swipe a todo to edit or delete</small></h2>
+  <ion-list no-lines>
+    <ion-item-sliding #slidingItem *ngFor="let todo of todos">
+      <ion-item>
+        <ion-checkbox [checked]="todo.isComplete"></ion-checkbox>
+        <ion-item text-wrap item-left [class.completed]="todo.isComplete">
+          {{ todo.description }}
+        </ion-item>
+      </ion-item>
+      <ion-item-options>
+        <button>Edit</button>
+        <button danger>
+          <ion-icon name="trash"></ion-icon>
+        </button>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+
 </ion-content>
